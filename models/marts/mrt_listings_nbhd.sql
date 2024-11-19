@@ -3,6 +3,7 @@
     tags=['daily']
 ) }}
 
+
 select
     neighbourhood_cleansed,
     room_type,
