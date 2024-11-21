@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "This table contains informations about orders"
+    columns:
+      - name: order_id
+        description: "Primary key, unique identifier for each order."
+        tests:
+            - unique
+            - not_null
