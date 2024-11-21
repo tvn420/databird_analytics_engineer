@@ -4,3 +4,16 @@ sources:
     schema: airbnb
     tables:
       - name: listings
+  
+  - name: databird_final_case
+    schema: databird_final_case
+    tables:
+      - name: orders
+      - name: order_items
+      - name: customers
+      - name: categories
+      - name: brands
+      - name: products
+      - name: staffs
+      - name: stocks
+      - name: stores
