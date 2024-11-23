@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: mrt_sales_by_store
+    description: '{{ doc("sales_by_store") }}'
+
+    columns:
+      - name: staff_id
+        description: id staff in charge of the store
+
+  - name: mrt_sales_stock_products
+    description: the query returns the brand's hierarchy and the top products sold by month, with stock available
+
+    columns:
+      - name: order_date_year_month
+        description: year-month level dimension
+
+  - name: mrt_customers_analysis
+    description: the query returns informations about customer's history and personal information 
+
+    columns:
+      - name: customer_id
+        description: client id
+      - name : order_id
+        description : order related to the client

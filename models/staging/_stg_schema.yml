@@ -7,77 +7,105 @@ models:
       - name: order_id
         description: "Primary key, unique identifier for each order."
         tests:
-            - unique
-            - not_null
-  
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_order_items')
+              field: order_id
+          - relationships:
+              to: ref('stg_store')
+              field: store_id
+
   - name: stg_order_items
     description: "This table contains detailed informations about orders"
     columns:
       - name: order_item_id
         description: "primary key, identify the order and product."
         tests:
-            - unique
-            - not_null
+          - unique
+          - not_null
 
-  - name: stg_order_products
+  - name: stg_products
     description: "This table contains informations about products ordered"
     columns:
       - name: product_id
         description: "primary key, identify the product."
         tests:
-            - unique
-            - not_null
-      
+          - unique
+          - not_null
+
   - name: stg_brands
     description: "This table contains informations about brands sold in the territory"
     columns:
       - name: brand_id
         description: "primary key"
         tests:
-            - unique
-            - not_null
-    
+          - unique
+          - not_null
+      - name: brand_name
+        description: "brand label"
+        tests:
+          - accepted_values:
+              values:
+                [
+                  "Electra",
+                  "Haro",
+                  "Heller",
+                  "Pure Cycles",
+                  "Ritchey",
+                  "Strider",
+                  "Sun Bicycles",
+                  "Surly",
+                  "Trek",
+                ]
+
   - name: stg_category
     description: "This referential table describe all the categories available"
     columns:
       - name: category_id
         description: "primary key"
         tests:
-            - unique
-            - not_null
-    
+          - unique
+          - not_null
+
   - name: stg_customers
     description: "This referential table contains all personal informations about customers"
     columns:
-        - name: customer_id
-          description: "primary key"
-          tests:
-              - unique
-              - not_null
+      - name: customer_id
+        description: "primary key"
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: customer_id
 
   - name: stg_staffs
     description: "This referential table contains all personal informations about stores's manager"
     columns:
-        - name: staff_id
-          description: "primary key"
-          tests:
-              - unique
-              - not_null
-    
+      - name: staff_id
+        description: "primary key"
+        tests:
+          - unique
+          - not_null
+
   - name: stg_stocks
     description: "This production table contains stock's status for a product"
     columns:
-        - name: stock_id
-          description: "primary key"
-          tests:
-              - unique
-              - not_null
-    
+      - name: stock_id
+        description: "primary key"
+        tests:
+          - unique
+          - not_null
+
   - name: stg_stores
     description: "This referential table contains informations about store location"
     columns:
-        - name: store_id
-          description: "primary key"
-          tests:
-              - unique
-              - not_null
+      - name: store_id
+        description: "primary key"
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: store_id

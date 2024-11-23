@@ -43,20 +43,22 @@ group by customer_id
 
 SELECT
 
+order_date_year_month,
+order_at,
 oi.customer_id,
 customer_city,
 customer_state,
 customer_zip_code,
 customer_email,
 customer_phone,
+favorite_product_id,
+favorite_product_name,
 brand_name,
 oi.order_id,
 oi.product_id,
 product_name,
 quantity,
 product_price, 
-order_at,
-order_date_year_month,
 order_items_total_price,
 last_order_at_diff_month
 
@@ -69,4 +71,5 @@ LEFT JOIN {{ref("stg_customers")}} c
 ON oi.customer_id = c.customer_id
 LEFT JOIN query_customer_month_diff_order d 
 ON oi.customer_id = d.customer_id
+
 
