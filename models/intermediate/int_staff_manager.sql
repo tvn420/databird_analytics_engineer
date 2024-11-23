@@ -3,8 +3,8 @@ WITH query_manager_staff AS (
 SELECT
 
 staff_id,
-staff_first_name as first_name_manager,
-staff_last_name as last_name_manager
+staff_first_name as manager_first_name,
+staff_last_name as manager_last_name
 
 FROM 
 
@@ -40,7 +40,7 @@ s.staff_email,
 s.staff_phone,
 s.active,
 m.staff_id as manager_id,
-first_name_manager,
-last_name_manager
+manager_first_name,
+manager_last_name
 
 from query_staff s left join query_manager_staff m on s.manager_id = m.staff_id
