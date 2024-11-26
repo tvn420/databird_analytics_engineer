@@ -56,13 +56,23 @@ models:
         description: "reduction apply"
 
   - name: stg_products
-    description: "This table contains informations about products ordered"
+    description: "This referential table contains informations about products"
     columns:
       - name: product_id
         description: "primary key, identify the product."
         tests:
           - unique
           - not_null
+      - name: brand_id
+        description: "foreign key for brand"
+      - name: category_id
+        description: "foreign key for category"
+      - name: product_name
+        description: "product label"
+      - name: model_year
+        description: "release's year"
+      - name: product_price
+        description: "unit's price (decimal)"
 
   - name: stg_brands
     description: "This table contains informations about brands sold in the territory"
@@ -149,6 +159,12 @@ models:
         tests:
           - unique
           - not_null
+      - name: store_id
+        description: "foreign key"
+      - name: store_product_id
+        description: "foreign key"
+      - name: stock_quantity
+        description: "stock available (integer)"
 
   - name: stg_stores
     description: "This referential table contains informations about store location"

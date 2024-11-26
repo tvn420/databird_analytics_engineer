@@ -23,7 +23,7 @@ query_customer_month_diff_order AS (
 
 SELECT 
 customer_id,
-DATE_DIFF(MAX(order_at),MAX(last_order_at), MONTH) AS last_order_at_diff_month
+DATE_DIFF(current_date,MAX(last_order_at), MONTH) AS last_order_at_diff_month
 
 FROM (
   SELECT
