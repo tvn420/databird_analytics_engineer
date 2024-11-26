@@ -48,8 +48,7 @@ customer_id_count,
 staff_total_sales_avg,
 staff_total_sales_m,
 ROUND(staff_total_sales_m_1,2) AS staff_total_sales_m_1,
-staff_total_sales_m - staff_total_sales_m_1 AS total_sales_evolution,
-100*(staff_total_sales_m - staff_total_sales_m_1)/staff_total_sales_m AS total_sales_evolution_percent
+staff_total_sales_m - staff_total_sales_m_1 AS total_sales_evolution
 
 FROM 
 
