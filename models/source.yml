@@ -1,10 +1,5 @@
 version: 2
 sources:
-  - name: airbnb
-    schema: airbnb
-    tables:
-      - name: listings
-  
   - name: databird_final_case
     schema: databird_final_case
     tables:

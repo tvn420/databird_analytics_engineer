@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: int_orders_items_sales
+    description: intermediate table which making link between orders and products sold
+
+    columns:
+      - name: order_items_total_price
+        description: this column calculate the total order price (quantity * unit_price)
+
+  - name: int_products_details
+    description: the query returns products category and brand related to a product
+
+    columns:
+      - name: product_id
+        description: primary key
+
+  - name: int_staff_manager
+    description: the query returns informations about store's manager
+
+    columns:
+      - name: staff_id
+        description: store's manager id
+      - name: manager_id
+        description: team manager

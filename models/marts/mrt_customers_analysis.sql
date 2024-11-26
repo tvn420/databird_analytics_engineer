@@ -46,6 +46,8 @@ SELECT
 order_date_year_month,
 order_at,
 oi.customer_id,
+CONCAT(customer_first_name, ' ', customer_last_name) AS customer_name,
+customer_address,
 customer_city,
 customer_state,
 customer_zip_code,

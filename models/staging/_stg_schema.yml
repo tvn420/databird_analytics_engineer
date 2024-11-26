@@ -15,6 +15,24 @@ models:
           - relationships:
               to: ref('stg_store')
               field: store_id
+      - name: customer_id
+        description: "customer identifiant"
+      - name: store_id
+        description: "store where the order was recorded"
+      - name: staff_id
+        description: "store's manager"
+      - name: order_status
+        description: "order status"
+        tests:
+          - accepted_values:
+              values: [1, 2, 3, 4]
+              quote: false
+      - name: order_at
+        description: "date order"
+      - name: required_at
+        description: "date required"
+      - name: shipped_at
+        description: "date when the order is send"
 
   - name: stg_order_items
     description: "This table contains detailed informations about orders"
@@ -24,6 +42,18 @@ models:
         tests:
           - unique
           - not_null
+      - name: order_id
+        description: "first part of the primary key"
+      - name: item_id
+        description: "second part of the primary key"
+      - name: product_id
+        description: "product key"
+      - name: quantity
+        description: "quantity sold"
+      - name: product_price
+        description: "unit price"
+      - name: discount
+        description: "reduction apply"
 
   - name: stg_products
     description: "This table contains informations about products ordered"
@@ -67,6 +97,20 @@ models:
         tests:
           - unique
           - not_null
+      - name: category_name
+        description: "category label"
+        tests:
+          - accepted_values:
+              values:
+                [
+                  "Children Bicycles",
+                  "Comfort Bicycles",
+                  "Cruisers Bicycles",
+                  "Cyclocross Bicycles",
+                  "Electric Bikes",
+                  "Mountain Bikes",
+                  "Road Bikes",
+                ]
 
   - name: stg_customers
     description: "This referential table contains all personal informations about customers"
@@ -79,6 +123,14 @@ models:
           - relationships:
               to: ref('stg_orders')
               field: customer_id
+      - name: customer_first_name
+        description: "customer's first name"
+      - name: customer_last_name
+        description: "customer's last name"
+      - name: customer_phone
+        description: "customer's phone"
+      - name: customer_email
+        description: "customer's mail"
 
   - name: stg_staffs
     description: "This referential table contains all personal informations about stores's manager"
