@@ -16,8 +16,7 @@ models:
         description: year-month level dimension
 
   - name: mrt_customers_analysis
-    description: the query returns informations about customer's history and personal information 
-
+    description: '{{ doc("customers_analysis") }}' 
     columns:
       - name: customer_id
         description: client id
